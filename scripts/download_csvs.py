@@ -1,12 +1,12 @@
 import flywheel
 import os
 
-csvs_dir = 'csvs'
+csvs_dir = 'csvs/csvs2'
 
 fw = flywheel.Client()
 project = fw.lookup('davis/presurgicalEpilepsy')
 analyses = fw.get_analyses("projects", project.id, "all")
-scenemem_analyses = [a for a in analyses if '2020-8-27_WT_scenemem' in a.label]
+scenemem_analyses = [a for a in analyses if 'scenemem2' in a.label]
 
 for analysis in scenemem_analyses:
     file = [f for f in analysis.files if "scenemem" in f.name]
